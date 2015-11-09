@@ -1,0 +1,46 @@
+{
+  "name": "chai-have-react-component",
+  "version": "0.0.0",
+  "description": "expect(element).to.have.component(Blink)",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "which babel && babel src --out-dir lib",
+    "test": "mocha test/setup.js test/ --compilers js:babel/register --recursive",
+    "watch-tests": "mocha test/setup.js test/ --compilers js:babel/register --recursive --watch",
+    "lint": "eslint .",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relekang/chai-have-react-component.git"
+  },
+  "keywords": [
+    "chai",
+    "react"
+  ],
+  "author": "Rolf Erik Lekang <me@rolflekang.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/relekang/chai-have-react-component/issues"
+  },
+  "eslintConfig": {
+    "extends": "frigg"
+  },
+  "homepage": "https://github.com/relekang/chai-have-react-component#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.3",
+    "chai": "^3.3.0",
+    "eslint": "^1.5.1",
+    "eslint-config-airbnb": "0.1.0",
+    "eslint-config-frigg": "frigg/eslint-config-frigg",
+    "eslint-plugin-react": "^3.4.2",
+    "jsdom": "^7.0.2",
+    "lodash": "^3.10.1",
+    "mocha": "^2.3.3",
+    "react": "^0.13.0",
+    "semantic-release": "^4.3.5"
+  },
+  "dependencies": {
+  }
+}
