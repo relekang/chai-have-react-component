@@ -41,5 +41,8 @@
     "react": "^0.13.0",
     "semantic-release": "^4.3.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "have-xpath": "1.0.0",
+    "param-case": "1.1.2"
+  }
 }

@@ -5,8 +5,8 @@ const {TestUtils} = React.addons;
 const {expect} = chai;
 
 const Super = React.createClass({
-  displayName: 'Super',
-  render: () => <div></div>,
+  displayName: 'SuperDuper',
+  render: () => <div className='super-duper'></div>,
 });
 
 describe('.have.component(Component)', () => {
@@ -20,7 +20,7 @@ describe('.have.component(Component)', () => {
       const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
       expect(() => {
         expect(component).to.have.component(Super);
-      }).to.throw('to have component \'Super\'');
+      }).to.throw('to have component \'SuperDuper\'');
     });
 
     it('should throw with outerHTML of the component', () => {
