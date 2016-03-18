@@ -1,27 +1,27 @@
 /* eslint-env node, browser */
-import _ from 'lodash';
-import jsdom from 'jsdom';
-import chai from 'chai';
+import _ from 'lodash'
+import jsdom from 'jsdom'
+import chai from 'chai'
 
-import chaiHaveReactComponent from '../src/index';
+import chaiHaveReactComponent from '../src/index'
 
-chai.use(chaiHaveReactComponent);
+chai.use(chaiHaveReactComponent)
 
 if (typeof global.document === 'undefined') {
-  global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
-  global.window = global.document.defaultView;
+  global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
+  global.window = global.document.defaultView
 }
 
-global.chai = chai;
+global.chai = chai
 
 _.forOwn(global.window, (value, key) => {
   if (!window.hasOwnProperty(key)) {
-    return;
+    return
   }
 
   if (key in global) {
-    return;
+    return
   }
 
-  global[key] = value;
-});
+  global[key] = value
+})

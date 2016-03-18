@@ -2,5 +2,8 @@
   "extends": "airbnb",
   "globals": {
     "chai": true
+  },
+  "rules": {
+    "semi": [2, "never"]
   }
 }
