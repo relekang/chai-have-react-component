@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "which babel && babel src --out-dir lib",
-    "test": "mocha test/setup.js test/ --compilers js:babel-core/register --recursive",
-    "watch-tests": "mocha test/setup.js test/ --compilers js:babel-core/register --recursive --watch",
+    "test": "mocha test/ --compilers js:babel-core/register --recursive",
+    "watch-tests": "mocha test/ --compilers js:babel-core/register --recursive --watch",
     "lint": "eslint .",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
