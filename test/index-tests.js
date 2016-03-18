@@ -22,8 +22,11 @@ describe('.have.component(Component)', () => {
     expect(component).to.have.component(Super);
   });
 
-  it('should find find given component in react component', () => {
+  it('should find find given component in div component', () => {
     expect(<div><Super /></div>).to.have.component(Super);
+  });
+
+  it('should find find given component in react component', () => {
     expect(<Super><Sub /></Super>).to.have.component(Sub);
   });
 
