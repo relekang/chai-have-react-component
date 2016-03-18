@@ -1,10 +1,10 @@
 /* eslint-env browser */
-import {haveXpath, getFindDOMNode} from 'have-xpath';
-import {shallow} from 'enzyme';
+import { haveXpath, getFindDOMNode } from 'have-xpath';
+import { shallow } from 'enzyme';
 import paramCase from 'param-case';
 
 let React;
-let findDOMNode = findDOMNode || (global && global.findDOMNode);
+let findDOMNode = findDOMNode || (global && global.findDOMNode); // eslint-disable-line no-use-before-define, max-len
 
 function haveReactComponent(component, subComponent) {
   return React.addons.TestUtils.scryRenderedComponentsWithType(component, subComponent).length > 0;
@@ -60,5 +60,6 @@ export default function haveComponent(Chai) {
     } else {
       throw new Error('This version of react is not supported');
     }
+    return null;
   });
 }

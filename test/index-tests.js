@@ -1,19 +1,19 @@
 /* eslint-env mocha */
-/* eslint-disable react/no-multi-comp */
+/* eslint-disable react/no-multi-comp, react/prefer-es6-class, react/prefer-stateless-function */
 import React from 'react/addons';
-const {TestUtils} = React.addons;
 
-const {expect} = chai;
+const { TestUtils } = React.addons;
+const { expect } = chai;
 
 const Super = React.createClass({
   displayName: 'SuperDuper',
   propTypes: { children: React.PropTypes.any },
-  render() { return <div className='super-duper'>{this.props.children}</div>; },
+  render() { return <div className="super-duper">{this.props.children}</div>; },
 });
 
 const Sub = React.createClass({
   displayName: 'Sub',
-  render: () => <div className='sub'></div>,
+  render: () => <div className="sub"></div>,
 });
 
 describe('.have.component(Component)', () => {
