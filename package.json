@@ -42,6 +42,7 @@
     "semantic-release": "^4.3.5"
   },
   "dependencies": {
+    "enzyme": "^2.1.0",
     "have-xpath": "1.0.0",
     "param-case": "1.1.2"
   }

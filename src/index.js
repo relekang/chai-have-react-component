@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import {haveXpath, getFindDOMNode} from 'have-xpath';
+import {shallow} from 'enzyme';
 import paramCase from 'param-case';
 
 let React;
@@ -24,10 +25,19 @@ export default function haveComponent(Chai) {
         React = require('react/addons');
       }
     }
+
+    if (!this._obj.hasOwnProperty('context')) {
+      return this.assert(
+        shallow(this._obj).find(component).length > 0,
+        `Expected "${this._obj.displayName}" to have component '${component.displayName}'`,
+        `Expected "${this._obj.displayName}" to not have component '${component.displayName}'`
+      );
+    }
+
+
     findDOMNode = findDOMNode || getFindDOMNode();
 
     const dom = findDOMNode(this._obj).outerHTML;
-
     if (/0\.13/.test(React.version)) {
       this.assert(
         haveReactComponent(this._obj, component),
