@@ -34,6 +34,10 @@ export default function haveComponent(Chai) {
       );
     }
 
+    console.log( // eslint-disable-line no-console
+      'Deprecation warning: This usage of have.component is deprecated, please ' +
+      'see the the readme for info about the new usage.'
+    );
 
     findDOMNode = findDOMNode || getFindDOMNode();
 
