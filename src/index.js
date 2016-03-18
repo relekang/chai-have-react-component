@@ -36,7 +36,8 @@ export default function haveComponent(Chai) {
 
     console.log( // eslint-disable-line no-console
       'Deprecation warning: This usage of have.component is deprecated, please ' +
-      'see the the readme for info about the new usage.'
+      'see the the readme for info about the new usage. This will be removed in version 3.' +
+      'More info can be found on https://github.com/relekang/chai-have-react-component'
     );
 
     findDOMNode = findDOMNode || getFindDOMNode();
