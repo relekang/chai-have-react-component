@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+npm uninstall react react-dom react-addons-test-utils || true
+
+if [ "$REACT" == "13" ]; then
+  npm install react@0.13
+fi
+
+if [ "$REACT" == "14" ]; then
+  npm install react@0.14 react-dom@0.14 react-addons-test-utils@0.14
+fi
+
+npm test

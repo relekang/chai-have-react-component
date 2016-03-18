@@ -38,10 +38,12 @@
     "jsdom": "^7.0.2",
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
-    "react": "^0.13.0",
+    "react": "*",
+    "react-dom": "*",
     "semantic-release": "^4.3.5"
   },
   "dependencies": {
+    "enzyme": "^2.1.0",
     "have-xpath": "1.0.0",
     "param-case": "1.1.2"
   }
