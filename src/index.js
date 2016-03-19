@@ -40,22 +40,17 @@ export default function haveComponent(Chai) {
     }
 
     counter++
-    console.log( // eslint-disable-line no-console
-      'Deprecation warning: This usage of have.component is deprecated, please ' +
-      'see the the readme for info about the new usage. This will be removed in version 3.' +
-      'More info can be found on https://github.com/relekang/chai-have-react-component'
-    )
-
     findDOMNode = findDOMNode || getFindDOMNode()
 
-    const dom = findDOMNode(this._obj).outerHTML
     if (/0\.13/.test(React.version)) {
+      const dom = this._obj.getDOMNode().outerHTML
       this.assert(
         haveReactComponent(this._obj, component),
         `Expected "${dom}" to have component '${component.displayName}'`,
         `Expected "${dom}" to not have component '${component.displayName}'`
       )
     } else if (/0\.14/.test(React.version)) {
+      const dom = findDOMNode(this._obj).outerHTML
       const className = paramCase(component.displayName)
       const extra = create14Message(className)
       this.assert(
@@ -72,7 +67,11 @@ export default function haveComponent(Chai) {
   process.on('exit', () => {
     if (counter > 0) {
       console.log( // eslint-disable-line no-console
-        `Deprecation warnings from chai-have-react-component: ${counter}`
+        `
+        Deprecation warning(${counter} times): This usage of have.component is deprecated,
+        please see the the readme for info about the new usage. This will be removed in
+        version 3. More info can be found on https://github.com/relekang/chai-have-react-component
+        `
       )
     }
   })

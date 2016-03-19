@@ -40,8 +40,6 @@
     "jsdom": "8.1.0",
     "lodash": "4.6.1",
     "mocha": "2.4.5",
-    "react": "*",
-    "react-dom": "*",
     "semantic-release": "4.3.5"
   },
   "dependencies": {
