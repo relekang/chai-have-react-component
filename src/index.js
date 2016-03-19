@@ -18,6 +18,8 @@ const create14Message = className => `
 `
 
 export default function haveComponent(Chai) {
+  let counter = 0
+
   Chai.Assertion.addMethod('component', function evaluateComponent(component) {
     if (typeof React === 'undefined') {
       React = require('react')
@@ -34,6 +36,7 @@ export default function haveComponent(Chai) {
       )
     }
 
+    counter++
     console.log( // eslint-disable-line no-console
       'Deprecation warning: This usage of have.component is deprecated, please ' +
       'see the the readme for info about the new usage. This will be removed in version 3.' +
@@ -61,5 +64,13 @@ export default function haveComponent(Chai) {
       throw new Error('This version of react is not supported')
     }
     return null
+  })
+
+  process.on('exit', () => {
+    if (counter > 0) {
+      console.log( // eslint-disable-line no-console
+        `Deprecation warnings from chai-have-react-component: ${counter}`
+      )
+    }
   })
 }
