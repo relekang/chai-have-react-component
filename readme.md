@@ -35,7 +35,7 @@ const component = TestUtils.renderIntoDocument(<div><Super /></div>);
 // it should pass
 expect(component).to.have.component(Super);
 
-// should fail with "Expected 'div' to not have component 'SuperDuper'"
+// should fail with "Expected 'div' to not have component 'Super'"
 expect(component).to.not.have.component(Super);
 ```
 
