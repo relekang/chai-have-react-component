@@ -1,9 +1,9 @@
 /* eslint-env browser */
 import { haveXpath, getFindDOMNode } from 'have-xpath'
-import { shallow } from 'enzyme'
 import paramCase from 'param-case'
 
 let React
+let enzyme
 let findDOMNode = findDOMNode || (global && global.findDOMNode) // eslint-disable-line no-use-before-define, max-len
 
 function haveReactComponent(component, subComponent) {
@@ -21,6 +21,9 @@ export default function haveComponent(Chai) {
   let counter = 0
 
   Chai.Assertion.addMethod('component', function evaluateComponent(component) {
+    if (typeof enzyme === 'undefined') {
+      enzyme = require('enzyme')
+    }
     if (typeof React === 'undefined') {
       React = require('react')
       if (/0\.13/.test(React.version)) {
@@ -30,7 +33,7 @@ export default function haveComponent(Chai) {
 
     if (this._obj.hasOwnProperty('_context') || this._obj.hasOwnProperty('_owner')) {
       return this.assert(
-        shallow(this._obj).find(component).length > 0,
+        enzyme.shallow(this._obj).find(component).length > 0,
         `Expected "${this._obj.displayName}" to have component '${component.displayName}'`,
         `Expected "${this._obj.displayName}" to not have component '${component.displayName}'`
       )
