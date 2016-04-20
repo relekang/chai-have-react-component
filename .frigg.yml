@@ -5,3 +5,4 @@ tasks:
  - npm run lint
  - REACT=13 ./runtests
  - REACT=14 ./runtests
+ - REACT=15 ./runtests

@@ -12,4 +12,8 @@ if [ "$REACT" == "14" ]; then
   npm install react@0.14 react-dom@0.14 react-addons-test-utils@0.14
 fi
 
+if [ "$REACT" == "15" ]; then
+  npm install react@15 react-dom@15 react-addons-test-utils@15
+fi
+
 npm test

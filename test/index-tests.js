@@ -1,8 +1,14 @@
 /* eslint-env mocha */
 /* eslint-disable react/no-multi-comp, react/prefer-es6-class, react/prefer-stateless-function */
-import React from 'react/addons'
+import React from 'react'
 
-const { TestUtils } = React.addons
+let TestUtils
+if (/0\.13/.test(React.version)) {
+  TestUtils = require('react/addons').addons.TestUtils
+} else {
+  TestUtils = require('react-addons-test-utils')
+}
+
 const { expect } = chai
 
 const Super = React.createClass({
