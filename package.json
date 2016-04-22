@@ -1,6 +1,6 @@
 {
   "name": "chai-have-react-component",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "expect(element).to.have.component(Blink)",
   "main": "lib/index.js",
   "scripts": {
