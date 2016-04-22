@@ -33,7 +33,7 @@ export default function haveComponent(Chai) {
 
     if (this._obj.hasOwnProperty('_context') || this._obj.hasOwnProperty('_owner')) {
       return this.assert(
-        enzyme.shallow(this._obj).find(component).length > 0,
+        enzyme.mount(this._obj).find(component).length > 0,
         `Expected "${this._obj.displayName}" to have component '${component.displayName}'`,
         `Expected "${this._obj.displayName}" to not have component '${component.displayName}'`
       )
