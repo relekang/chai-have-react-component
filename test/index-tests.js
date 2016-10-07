@@ -2,8 +2,10 @@
 /* eslint-disable react/no-multi-comp, react/prefer-es6-class, react/prefer-stateless-function */
 import React from 'react'
 
+const isReact13 = /0\.13/.test(React.version)
+
 let TestUtils
-if (/0\.13/.test(React.version)) {
+if (isReact13) {
   TestUtils = require('react/addons').addons.TestUtils
 } else {
   TestUtils = require('react-addons-test-utils')
@@ -43,4 +45,19 @@ describe('.have.component(Component)', () => {
       }).to.throw('to have component \'SuperDuper\'')
     })
   })
+
+  if (!isReact13) {
+    it('should find given stateless component', () => {
+      const StatelessSub = () => (<div></div>)
+
+      expect(<Super><StatelessSub /></Super>).to.have.component(StatelessSub)
+    })
+
+    it('should find a component in a stateless component', () => {
+      const StatelessSuper = ({ children }) => (<div>{children}</div>)
+      StatelessSuper.propTypes = { children: React.PropTypes.any }
+
+      expect(<StatelessSuper><Sub />></StatelessSuper>).to.have.component(Sub)
+    })
+  }
 })
