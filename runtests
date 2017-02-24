@@ -6,14 +6,10 @@ npm uninstall react react-dom react-addons-test-utils || true
 
 if [ "$REACT" == "13" ]; then
   npm install react@0.13
-fi
-
-if [ "$REACT" == "14" ]; then
+elif [ "$REACT" == "14" ]; then
   npm install react@0.14 react-dom@0.14 react-addons-test-utils@0.14
-fi
-
-if [ "$REACT" == "15" ]; then
-  npm install react@15 react-dom@15 react-addons-test-utils@15
+else
+  npm install react@$REACT react-dom@$REACT react-addons-test-utils@$REACT
 fi
 
 npm test

@@ -49,7 +49,7 @@ export default function haveComponent(Chai) {
         `Expected "${dom}" to have component '${component.displayName}'`,
         `Expected "${dom}" to not have component '${component.displayName}'`
       )
-    } else if (/^(15\.)|(0\.14)/.test(React.version)) {
+    } else if (/^(16\.)|(15\.)|(0\.14)/.test(React.version)) {
       const dom = findDOMNode(this._obj).outerHTML
       const className = paramCase(component.displayName)
       const extra = create14Message(className)
