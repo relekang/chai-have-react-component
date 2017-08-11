@@ -1,6 +1,6 @@
 {
   "name": "chai-have-react-component",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "expect(element).to.have.component(Blink)",
   "main": "lib/index.js",
   "scripts": {
@@ -41,7 +41,8 @@
     "jsdom": "8.1.0",
     "lodash": "4.6.1",
     "mocha": "2.4.5",
-    "semantic-release": "4.3.5"
+    "semantic-release": "4.3.5",
+    "standard-version": "^4.2.0"
   },
   "dependencies": {
     "enzyme": "2.4.1",
