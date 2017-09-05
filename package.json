@@ -45,7 +45,7 @@
     "standard-version": "^4.2.0"
   },
   "dependencies": {
-    "enzyme": "2.4.1",
+    "enzyme": "2.8.1",
     "have-xpath": "1.0.1",
     "param-case": "1.1.2"
   }
