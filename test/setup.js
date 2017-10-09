@@ -1,6 +1,7 @@
 /* eslint-env node, browser */
 import jsdom from 'jsdom'
 import chai from 'chai'
+import { configure } from 'enzyme'
 
 import chaiHaveReactComponent from '../src/index'
 
@@ -18,4 +19,20 @@ if (typeof global.requestAnimationFrame === 'undefined') {
   }
 }
 
+
 global.chai = chai
+
+Object.keys(global.window).forEach((key) => {
+  if (!window.hasOwnProperty(key)) {
+    return
+  }
+
+  if (key in global) {
+    return
+  }
+
+  global[key] = global.window[key]
+})
+
+const Adapter = require('enzyme-adapter-react-16')
+configure({ adapter: new Adapter() })
