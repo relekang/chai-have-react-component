@@ -12,4 +12,10 @@ if (typeof global.document === 'undefined') {
   global.window = dom.window
 }
 
+if (typeof global.requestAnimationFrame === 'undefined') {
+  global.requestAnimationFrame = function requestAnimationFrame(callback) {
+    setTimeout(callback, 0)
+  }
+}
+
 global.chai = chai
